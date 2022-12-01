@@ -14,8 +14,13 @@ namespace Advent_of_Code_2022.src.main
         static public void Main(string[] args)
         {
             var caloryList = ReadInput("D:\\repos\\Advent-of-Code-2022\\lib\\CalorieCounting.txt");
-            int mostCalories = FindBiggestItemInList(caloryList);
-            Console.WriteLine(mostCalories.ToString());
+            int[] mostCalories = FindThreeBiggestItemsInList(caloryList);
+            int total = 0;
+            foreach(int item in mostCalories )
+            {
+                total += item;
+            }
+            Console.WriteLine(total);
         }
         
         static private List<int> ReadInput(string filePath)
@@ -50,6 +55,17 @@ namespace Advent_of_Code_2022.src.main
                 }
             }
             return list[indexOfBiggestItem];
+        }
+
+        static private int[] FindThreeBiggestItemsInList(List<int> list)
+        {
+            int[] result = new int[3];
+
+            list.Sort();
+            result[0] = list[list.Count-1];
+            result[1] = list[list.Count-2];
+            result[2] = list[list.Count-3];
+            return result;
         }
     }
 }
