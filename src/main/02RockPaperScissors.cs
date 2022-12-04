@@ -37,17 +37,17 @@ namespace Advent_of_Code_2022.src.main
 
         /*
          * A: Rock; B: Paper; C: Scissors
-         * X: Rock; Y: Paper; Z: Scissors
+         * X: Lose; Y: Draw; Z: Win
          * Possible outcomes:
-         * AX: 3 + 1 = 4
-         * AY: 6 + 2 = 8
-         * AZ: 0 + 3 = 3
+         * AX: 0 + 3 = 3
+         * AY: 3 + 1 = 4
+         * AZ: 6 + 2 = 8
          * BX: 0 + 1 = 1
          * BY: 3 + 2 = 5
          * BZ: 6 + 3 = 9
-         * CX: 6 + 1 = 7
-         * CY: 0 + 2 = 2
-         * CZ: 3 + 3 = 6
+         * CX: 0 + 2 = 2
+         * CY: 3 + 3 = 6
+         * CZ: 6 + 1 = 7
          */
 
         static private int CalculatePoints(char opponentsTurn, char myTurn)
@@ -79,15 +79,15 @@ namespace Advent_of_Code_2022.src.main
             switch (myTurn)
             {
                 case 'X':
-                    points = 4;
+                    points = 3;
                     break;
 
                 case 'Y':
-                    points = 8;
+                    points = 4;
                     break;
 
                 case 'Z':
-                    points = 3;
+                    points = 8;
                     break;
             }
             return points;
@@ -121,15 +121,15 @@ namespace Advent_of_Code_2022.src.main
             switch (myTurn)
             {
                 case 'X':
-                    points = 7;
-                    break;
-
-                case 'Y':
                     points = 2;
                     break;
 
-                case 'Z':
+                case 'Y':
                     points = 6;
+                    break;
+
+                case 'Z':
+                    points = 7;
                     break;
             }
             return points;
